@@ -1,0 +1,28 @@
+# clang-format configuration for C (VSCode will pick this up automatically)
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ColumnLimit: 100
+
+# Braces and layout
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Never
+BinPackArguments: false
+BinPackParameters: false
+AlignAfterOpenBracket: Align
+PenaltyBreakBeforeFirstCallParameter: 100
+PenaltyReturnTypeOnItsOwnLine: 200
+
+# Spacing
+SpaceBeforeParens: ControlStatements
+SpacesBeforeTrailingComments: 1
+DerivePointerAlignment: false
+PointerAlignment: Left
+
+# Includes
+SortIncludes: true
+IncludeBlocks: Regroup
