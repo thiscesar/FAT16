@@ -4,7 +4,7 @@
 static void menu(void) {
   printf("\n");
   printf("╔══════════════════════════════════════════════╗\n");
-  printf("║     MANIPULADOR SIMPLES DE FAT16 (RAIZ)      ║\n");
+  printf("║     MANIPULADOR DE FAT16 (RAIZ)              ║\n");
   printf("╠══════════════════════════════════════════════╣\n");
   printf("║ 1. Listar arquivos                           ║\n");
   printf("║ 2. Mostrar conteúdo de arquivo               ║\n");
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
 
   int opt;
   char a[256], b[256], src[512];
-  for (;;) {
+  for (;;) { // laço infinito
     menu();
     if (scanf("%d", &opt) != 1)
       break;

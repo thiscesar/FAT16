@@ -1,7 +1,6 @@
 # Manipulador FAT16 (diretório raiz)
 
-Implementação didática das operações básicas sobre uma imagem FAT16 (sem subdiretórios).
-CLI simples em C usando `gcc`/`make`. Projeto preparado para VSCode e Codespaces.
+Implementação para a disciplina de **Sistemas Operacionais** da **UNIVALI** (Curso de **Ciência da Computação**).
 
 ## 1. Requisitos
 
@@ -49,7 +48,7 @@ O projeto já traz configurações de build e execução em `.vscode/*`.
 ```bash
 make
 ```
-Isso gera o executável `./fat16` na raiz do projeto.
+Compila objetos em build/ e gera o binário build/fat16.
 
 ### Opção B — VSCode (Task)
 - `Terminal → Run Task… → Build (make)` ou `Ctrl+Shift+B`.
@@ -58,9 +57,9 @@ Isso gera o executável `./fat16` na raiz do projeto.
 
 ### Opção A — Terminal
 ```bash
-./fat16 ./imgs/disco1.img
+./build/fat16 ./imgs/disco1.img
 # ou
-./fat16 ./imgs/disco2.img
+./build/fat16 ./imgs/disco2.img
 ```
 
 ### Opção B — VSCode (Debug/Run)
@@ -86,7 +85,7 @@ Ao iniciar, o programa exibe um menu:
 
 Exemplo (terminal):
 ```bash
-./fat16 ./imgs/disco1.img
+./build/fat16 ./imgs/disco1.img
 # opção 1 → lista arquivos
 # opção 2 → informe algo como README.TXT
 ```
@@ -114,11 +113,11 @@ make clean
 Você pode usar `make run` passando uma imagem via variável `IMG`:
 
 ```make
-# adicione ao Makefile
 IMG ?= ./imgs/disco1.img
+TARGET = build/fat16
 
 run: all
-	./fat16 $(IMG)
+	$(TARGET) $(IMG)
 ```
 
 Uso:
@@ -130,3 +129,34 @@ make run IMG=./imgs/disco2.img
 ---
 
 Qualquer dúvida, rode `make` e depois `./fat16 ./imgs/disco1.img`. Se aparecer mensagem de erro, verifique o caminho e a estrutura acima.
+
+
+## Referências
+
+- Microsoft. **FAT: General Overview of On-Disk Format (fatgen103).** Documento clássico que descreve o BPB, diretório raiz (entradas de 32 bytes) e a FAT16/12/32.
+  - https://download.microsoft.com/download/9/c/5/9c5b2167-8017-4bae-9fde-d599bac8184a/fatgen103.pdf
+- OSDev Wiki. **FAT.** Resumo didático do layout do FAT, entrada 8.3, atributos e encadeamento de clusters.
+  - https://wiki.osdev.org/FAT
+- Wikipedia. **Design of the FAT file system.** Visão geral e exemplos de FAT16, incluindo estrutura da FAT e diretórios.
+  - https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system
+- rweichler/**FAT16** (GitHub). Implementação de leitura de imagens FAT16 em C; útil como referência de organização e testes.
+  - https://github.com/rweichler/FAT16
+
+## Apoio com IA (ChatGPT)
+
+Este trabalho foi inteiramente desenvolvido por mim, Cesar Luiz de Sousa Júnior e minha dupla, Vitor Borges Paes. 
+Utilizamos o ChatGPT como **apoio pontual** para:
+- estruturar o projeto em arquivos (`fat16.h`, `fat16_fs.c`, `fat16_cli.c`) mantendo a simplicidade;
+- revisar e comentar as **structs** (BPB/DirectoryEntry) e constantes, com referências clássicas;
+- gerar um **Makefile** e configuração de **VSCode** (tasks/launch/formatador);
+- esclarecer detalhes de FAT16 (formato 8.3, cadeia de clusters, datas) e ajustar mensagens de erro;
+- criar este README e a seção de referências de maneira organizada.
+
+Exemplos de prompts usados (resumido):
+- “Separe meu código em header + implementação + CLI (menu em linha de comando), mantendo tudo simples, sem padrões desnecessários.”
+- “Explique `#pragma pack(push, 1)` e comente cada campo do `BootSector` e `DirectoryEntry`.”
+- “Crie um Makefile mínimo para `src/fat16_fs.c` e `src/fat16_cli.c`.”
+- “Configuração do VSCode (launch/tasks) para rodar `./fat16 ./imgs/disco1.img`.”
+
+Obs.: a autoria do código, decisões de arquitetura e testes são da equipe; o ChatGPT foi utilizado como ferramenta de suporte técnico/redacional.
+Decidimos incluir essa seção para manter a transparência com o Professor responsável da disciplina.
