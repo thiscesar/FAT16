@@ -1,0 +1,17 @@
+{
+  "files.associations": {
+    "*.h": "c"
+  },
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "[cpp]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "xaver.clang-format"
+  },
+  "C_Cpp.clang_format_style": "file",
+  "C_Cpp.clang_format_fallbackStyle": "LLVM",
+  "editor.formatOnPaste": true,
+  "C_Cpp.errorSquiggles": "Enabled"
+}

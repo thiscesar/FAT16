@@ -1,0 +1,27 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run fat16 (disco1.img)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/fat16",
+      "args": ["./imgs/disco1.img"],
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Build (make)"
+    },
+    {
+      "name": "Run fat16 (disco2.img)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/fat16",
+      "args": ["./imgs/disco2.img"],
+      "cwd": "${workspaceFolder}",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "preLaunchTask": "Build (make)"
+    }
+  ]
+}
